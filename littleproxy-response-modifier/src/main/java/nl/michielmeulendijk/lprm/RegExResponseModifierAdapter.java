@@ -13,11 +13,11 @@ import nl.michielmeulendijk.lprm.URLFilter;
 public class RegExResponseModifierAdapter extends ResponseModifierAdapter {
 
 	/** Instantiates ResponseModifierAdapter with HttpRequest, ChannelHandlerContext, and any number of URLFilters.
-	 * URLFilters' action property must consist of a HashMap<String, String> that contains a regex and its replacement.
+	 * URLFilters' action property must consist of a HashMap&lt;String, String&gt; that contains a regex and its replacement.
 	 * E.g. new URLFilter("^/.*", 
-			new HashMap<String, String>() {{
-				put("<title>.*<\\/title>", "<title>New Title!</title>");
-				put("<body>", "<body><p>Hello world!</p>");
+			new HashMap&lt;String, String&gt;() {{
+				put("&lt;title&gt;.*&lt;\\/title&gt;", "&lt;title&gt;New Title!&lt;/title&gt;");
+				put("&lt;body&gt;", "&lt;body&gt;&lt;p&gt;Hello world!&lt;/p&gt;");
 			}}
 		)
 	 * @param originalRequest			LittleProxy's originalRequest.
