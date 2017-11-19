@@ -4,8 +4,18 @@ _Extension for LittleProxy that makes it easy to edit responses before forwardin
 There are many requests for how to set up [LittleProxy](https://github.com/adamfisk/LittleProxy) as a reverse proxy, and especially how to edit responses before forwarding them to the client. This extension allows you to:
 * Quickly set up a LittleProxy implementation that intercepts and edits server responses.
 * Edit responses through regular expressions or XSLT (or through your own implementation).
-## Installation
-[TODO: Maven repo]
+
+Check out the __ReverseProxy__ example to see how to set up this extension with a reverse proxy.
+
+## Installation (Maven)
+### Repository
+```xml
+<dependency>
+	<groupId>nl.michielmeulendijk</groupId>
+	<artifactId>lprm</artifactId>
+	<version>1.0.1</version>
+</dependency>
+```
 
 ### Dependencies
 ```xml
@@ -82,3 +92,11 @@ HttpProxyServer server =
 			}
 		).start()
   ```
+__XSLTResponseModifierAdapter__ uses Xalan to perform its XSL transformations. Make sure you include it as a dependency if you go this route.
+
+## Configuration
+The code overrides __serverToProxyResponse__, checks if the request URL matches any __URLFilters__, and changes them if required. If you need to intercept the response after any of the filters, I recommend using __proxyToClientResponse__ so as not to get in the way of the response modifier.
+
+By default, __getMaximum(Request/Response)BufferSizeInBytes__ returns +/- 10 MB buffers. If you need requests or responses larger than that, make sure to override them.
+
+For an example of how to use the response modifier with a reverse proxy (including overriding example), check out the ReverseProxy class.
