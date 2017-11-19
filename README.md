@@ -5,7 +5,7 @@ There are many requests for how to set up [LittleProxy](https://github.com/adamf
 * Quickly set up a LittleProxy implementation that intercepts and edits server responses.
 * Edit responses through regular expressions or XSLT (or through your own implementation).
 
-Check out the __ReverseProxy__ example to see how to set up this extension with a reverse proxy.
+Check out the [__ReverseProxy__](https://github.com/MichielCM/littleproxy-response-modifier/blob/master/littleproxy-response-modifier/src/main/java/nl/michielmeulendijk/lprm/examples/ReverseProxy.java) example to see how to set up this extension with a reverse proxy.
 
 ## Installation (Maven)
 ### Repository
@@ -13,7 +13,7 @@ Check out the __ReverseProxy__ example to see how to set up this extension with 
 <dependency>
 	<groupId>nl.michielmeulendijk</groupId>
 	<artifactId>lprm</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 </dependency>
 ```
 
@@ -99,4 +99,4 @@ The code overrides __serverToProxyResponse__, checks if the request URL matches 
 
 By default, __getMaximum(Request/Response)BufferSizeInBytes__ returns +/- 10 MB buffers. If you need requests or responses larger than that, make sure to override them.
 
-For an example of how to use the response modifier with a reverse proxy (including overriding example), check out the ReverseProxy class.
+For an example of how to use the response modifier with a reverse proxy (including overriding example), check out the [ReverseProxy](https://github.com/MichielCM/littleproxy-response-modifier/blob/master/littleproxy-response-modifier/src/main/java/nl/michielmeulendijk/lprm/examples/ReverseProxy.java) class.
