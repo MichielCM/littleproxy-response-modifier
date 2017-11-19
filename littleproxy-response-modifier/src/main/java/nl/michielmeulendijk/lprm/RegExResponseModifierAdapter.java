@@ -32,7 +32,7 @@ public class RegExResponseModifierAdapter extends ResponseModifierAdapter {
 	 * regex matches accordingly.
 	 */
 	@Override
-    public HttpObject proxyToClientResponse(HttpObject httpObject) {
+    public HttpObject serverToProxyResponse(HttpObject httpObject) {
     	//if response contains data
         if (httpObject instanceof FullHttpResponse) {
         	URLFilter urlFilter = this.match(originalRequest);
